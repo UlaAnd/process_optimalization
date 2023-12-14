@@ -1,10 +1,10 @@
-{% extends 'feedback/base.html' %}
+{% extends 'uploader/base.html' %}
 
 {% block content %}
 
 <h1>Thank You!</h1>
 
-<p>Your feedback has been recorded.</p>
-<p>If you have more to say, you can <a href="{% url 'feedback:feedback' %}">submit another feedback</a> response.</p>
+<p>Your file has been uploaded, we will inform you once it is saved! .</p>
+<div id="notification"></div>
 
 {% endblock content %}

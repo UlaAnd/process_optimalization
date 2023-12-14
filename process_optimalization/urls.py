@@ -17,6 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from uploader.views import contact, success
+
+app_name = "uploader"
+
+# urlpatterns = [
+#     path("admin/", admin.site.urls),
+#     path("", UploadFormView.as_view(), name="uploader"),
+#     path("success/", SuccessView.as_view(), name="success"),
+#     ]
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("contact/", contact, name="contact"),
+    path("success/", success, name="success"),
 ]
