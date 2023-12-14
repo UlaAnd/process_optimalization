@@ -28,6 +28,7 @@ wheels/
 /staticfiles
 __pycache__
 db.sqlite3
+/process_optimalization/local.py
 media
 
 # Environments

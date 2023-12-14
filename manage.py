@@ -4,7 +4,7 @@ import os
 import sys
 
 
-def main():
+def main() -> None:
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "process_optimalization.settings")
     try:
@@ -16,6 +16,7 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+    return None
 
 
 if __name__ == "__main__":

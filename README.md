@@ -4,13 +4,19 @@ How to install
 
 `pip install -r requirements.txt`
 
-
-
-
 `python manage.py migrate`
 
-` chmod +x ./tools ` - the command allows you to run the pj file code
-`./tools lint` - repair command 
+`chmod +x ./formats` - the command allows you to run the formats file code
+`./formats lint` - repair command 
 
 Save Dependencies:
+
 `pip freeze > requirements.txt`
+
+Run django-q monitoring:
+
+`python manage.py qcluster
+`
+
+` python manage.py qmonitor
+`
