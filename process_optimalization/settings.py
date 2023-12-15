@@ -12,13 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
-from process_optimalization.local import (
-    HOST_PASSWORD,
-    HOST_USER,
-    MAILGUN_API_KEY,
-    MAILGUN_SENDER_DOMAIN,
-)
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -137,18 +130,18 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 ANYMAIL = {
-    "MAILGUN_API_KEY": MAILGUN_API_KEY,
-    "MAILGUN_SENDER_DOMAIN": MAILGUN_SENDER_DOMAIN,
+    "MAILGUN_API_KEY": "",
+    "MAILGUN_SENDER_DOMAIN": "",
 }
 EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
 
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = HOST_USER
-EMAIL_HOST_PASSWORD = HOST_PASSWORD
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
 EMAIL_USE_TLS = True
-SERVER_EMAIL = HOST_USER
-DEFAULT_FROM_EMAIL = HOST_USER
+SERVER_EMAIL = "HOST_USER"
+DEFAULT_FROM_EMAIL = "HOST_USER"
 
 Q_CLUSTER = {
     "name": "djangoq_project",
