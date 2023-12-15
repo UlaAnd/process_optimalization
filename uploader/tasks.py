@@ -3,7 +3,7 @@ from time import sleep
 from django.core.mail import BadHeaderError, send_mail
 from django_q.tasks import async_task
 
-from process_optimalization.settings import DEFAULT_FROM_EMAIL
+from django.conf import settings
 from uploader.models import Image
 
 
@@ -19,11 +19,11 @@ def send_email_task(to: str, message: str) -> None:
         sleep(30)
         print("About to send_mail")
         send_mail(
-            "Subject of the email",  # Replace with your subject
+            "Your file",
             message,
-            DEFAULT_FROM_EMAIL,
+            settings.DEFAULT_FROM_EMAIL,
             [to],
-            fail_silently=False,  # Set to True if you want errors to be ignored
+            fail_silently=False,
         )
     except BadHeaderError:
         print("BadHeaderError")
