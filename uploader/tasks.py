@@ -1,8 +1,17 @@
 from time import sleep
 
 from django.core.mail import BadHeaderError, send_mail
+from django_q.tasks import async_task
 
 from process_optimalization.settings import DEFAULT_FROM_EMAIL
+from uploader.models import Image
+
+
+def start_process(valid_data: dict, image_id: str) -> None:
+    Image.objects.get(id=image_id)
+    email = valid_data["mail"]
+    message = "Your file is uploaded!"
+    async_task(send_email_task, email, message)
 
 
 def send_email_task(to: str, message: str) -> None:

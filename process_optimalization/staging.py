@@ -30,7 +30,6 @@ SERVER_EMAIL = HOST_USER
 DEFAULT_FROM_EMAIL = HOST_USER
 
 
-
 if len(sys.argv) > 0 and sys.argv[1] != "collectstatic":
     if os.getenv("DATABASE_URL", None) is None:
         raise Exception("DATABASE_URL environment variable not defined")
@@ -58,3 +57,12 @@ if not DEBUG:  # Tell Django to copy statics to the `staticfiles` directory
     # and creating unique names for each version so they can safely be cached forever.
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+Q_CLUSTER = {
+    "name": "djangoq_project",
+    "timeout": 60,
+    "redis": {
+        "host": "red-clu6t80l5elc738ahad0",
+        "port": 6379,
+        "db": 0,
+    },
+}

@@ -1,10 +1,8 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
-from django_q.tasks import async_task
 
 from uploader.forms import UploadForm
-from uploader.models import Image
-from uploader.tasks import send_email_task
+from uploader.tasks import start_process
 
 
 def upload_form_view(request: HttpRequest) -> HttpResponse:
@@ -17,13 +15,6 @@ def upload_form_view(request: HttpRequest) -> HttpResponse:
     else:
         form = UploadForm()
     return render(request, "uploader/uploader.html", {"form": form})
-
-
-def start_process(valid_data: dict, image_id: str) -> None:
-    Image.objects.get(id=image_id)
-    email = valid_data["mail"]
-    message = "Your file is uploaded!"
-    async_task(send_email_task, email, message)
 
 
 def success(request: HttpRequest) -> HttpResponse:
