@@ -1,12 +1,11 @@
 # Project Title: File Uploader with Async Function
 
-This project is a file uploader with an asynchronous function. Once the file upload process is completed, the system automatically sends an email notification.
+This project facilitates file uploading with an asynchronous function. Once the file upload process is completed, the system automatically sends an email notification. 
 
-The deployed version of the application can be accessed on the following URL: https://process-optimalization.onrender.com
-
+The deployed version of the application can be accessed at: https://process-optimalization.onrender.com
 ## Prerequisites
 
-Ensure you have Python 3.11 installed on your machine to avoid any compatibility issues.
+Ensure that Python 3.11 is installed on your machine to avoid any compatibility issues.
 
 ## Installation
 
@@ -18,30 +17,33 @@ Ensure you have Python 3.11 installed on your machine to avoid any compatibility
     ```bash
     python manage.py migrate
     ```
-3. **Give Execute Permissions to Formats File**
+3. **Create Django Superuser**
+   ```bash
+   python manage.py createsuperuser
+   ```
+4. **Commands for Local Running**
+
+   First terminal:
+   ```bash
+    python manage.py runserver 
+   ```
+   Second terminal:
+   ```bash
+    python manage.py qcluster
+   ```
+
+1. **Give Execute Permissions to Scripts**
     ```bash
     chmod +x ./formats
     ```
-4. **Run Formats File Code**
+2. **Run Scripts**
     ```bash
     ./formats lint
     ```
 
 ## Save Dependencies
 
-Record the list of all the Python packages required by your application into a requirements file using:
+If you want to record the list of all Python packages required by your application, you can do so into a requirements file using:
 ```bash
 pip freeze > requirements.txt
-```
-
-## Run Django-Q Monitoring
-
-1. **Start Django-Q Cluster**
-    ```bash
-    python manage.py qcluster
-    ```
-2. **Start Django-Q Monitor**
-    ```bash
-    python manage.py qmonitor
-    ```
-Please follow the above commands
+``

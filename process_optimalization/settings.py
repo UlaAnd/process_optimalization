@@ -135,13 +135,9 @@ ANYMAIL = {
 }
 EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
 
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_HOST_USER = ""
-EMAIL_HOST_PASSWORD = ""
 EMAIL_USE_TLS = True
-SERVER_EMAIL = "HOST_USER"
-DEFAULT_FROM_EMAIL = "HOST_USER"
+SERVER_EMAIL = "example@example.com"
+DEFAULT_FROM_EMAIL = "example@example.com"
 
 Q_CLUSTER = {
     "name": "djangoq_project",

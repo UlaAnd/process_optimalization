@@ -17,7 +17,7 @@ class TestUploader:
             name="test_image.png", content=image_file.read(), content_type="image/png"
         )
         data = {"mail": "test@mail.com", "file": uploaded_image}
-        with patch("uploader.views.async_task") as mock_async:
+        with patch("uploader.tasks.async_task") as mock_async:
             factory = RequestFactory()
             request = factory.post("/", data)
             response = upload_form_view(request)
