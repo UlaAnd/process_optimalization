@@ -1,11 +1,12 @@
 # Project Title: File Uploader with Async Function
 
-This project facilitates file uploading with an asynchronous function. Once the file upload process is completed, the system automatically sends an email notification. 
+This project is a file uploader with an asynchronous function. Once the file upload process is completed, the system automatically sends an email notification.
 
-The deployed version of the application can be accessed at: https://process-optimalization.onrender.com
+The deployed version of the application can be accessed on the following URL: https://process-optimalization.onrender.com
+
 ## Prerequisites
 
-Ensure that Python 3.11 is installed on your machine to avoid any compatibility issues.
+Ensure you have Python 3.11 installed on your machine to avoid any compatibility issues.
 
 ## Installation
 
@@ -21,9 +22,20 @@ Ensure that Python 3.11 is installed on your machine to avoid any compatibility 
    ```bash
    python manage.py createsuperuser
    ```
-4. **Commands for Local Running**
+4. **Mailgun Configuration**
+    If you want Mailgun to work for sending emails, please fill this with your data in settings.py file. 
+    ```python
+    ANYMAIL = {
+        "MAILGUN_API_KEY": "",
+        "MAILGUN_SENDER_DOMAIN": "",
+    }
 
-   First terminal:
+    SERVER_EMAIL = "example@example.com"
+    DEFAULT_FROM_EMAIL = "example@example.com"
+    ```
+
+5. **Commands for Local Running**
+  First terminal:
    ```bash
     python manage.py runserver 
    ```
@@ -32,11 +44,11 @@ Ensure that Python 3.11 is installed on your machine to avoid any compatibility 
     python manage.py qcluster
    ```
 
-1. **Give Execute Permissions to Scripts**
+6. **Give Execute Permissions to linter scripts**
     ```bash
     chmod +x ./formats
     ```
-2. **Run Scripts**
+7. **Run Scripts**
     ```bash
     ./formats lint
     ```
@@ -46,4 +58,4 @@ Ensure that Python 3.11 is installed on your machine to avoid any compatibility 
 If you want to record the list of all Python packages required by your application, you can do so into a requirements file using:
 ```bash
 pip freeze > requirements.txt
-``
+```

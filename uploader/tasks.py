@@ -15,7 +15,7 @@ def start_process(valid_data: dict, image_id: int) -> None:
 
 def send_email_task(to: str, image_id: int) -> None:
     try:
-        sleep(300)
+        sleep(30)
         image = Image.objects.get(id=image_id)
         message = f"Your file is uploaded! Id of your file is: {image.id}"
         print("About to send_mail")
